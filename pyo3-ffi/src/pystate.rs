@@ -64,10 +64,13 @@ extern "C" {
     pub fn PyThreadState_GetDict() -> *mut PyObject;
     #[cfg(not(PyPy))]
     pub fn PyThreadState_SetAsyncExc(arg1: c_long, arg2: *mut PyObject) -> c_int;
+
+    #[cfg(Py_3_9)]
+    pub fn PyThreadState_GetInterpreter(tstate: *mut PyThreadState) -> *mut PyInterpreterState;
+    #[cfg(Py_3_9)]
+    pub fn PyThreadState_GetID(tstate: *mut PyThreadState) -> u64;
 }
 
-// skipped non-limited / 3.9 PyThreadState_GetInterpreter
-// skipped non-limited / 3.9 PyThreadState_GetFrame
 // skipped non-limited / 3.9 PyThreadState_GetID
 
 #[repr(C)]
