@@ -1,3 +1,4 @@
+use crate::{PyStatus, PyThreadState};
 use std::ffi::c_int;
 
 pub const PyInterpreterConfig_DEFAULT_GIL: c_int = 0;
