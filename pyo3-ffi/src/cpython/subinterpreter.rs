@@ -1,9 +1,9 @@
 use crate::{PyStatus, PyThreadState};
 use std::ffi::c_int;
 
-pub const PyInterpreterConfig_DEFAULT_GIL: c_int = 0;
-pub const PyInterpreterConfig_SHARED_GIL: c_int = 1;
-pub const PyInterpreterConfig_OWN_GIL: c_int = 2;
+pub const PyInterpreterConfig_DEFAULT_GIL: c_int = PyInterpreterConfig_SHARED_GIL;
+pub const PyInterpreterConfig_SHARED_GIL: c_int = 0;
+pub const PyInterpreterConfig_OWN_GIL: c_int = 1;
 
 #[repr(C)]
 #[derive(Copy, Clone)]
