@@ -29,6 +29,8 @@ pub(crate) mod pylifecycle;
 pub(crate) mod pymem;
 pub(crate) mod pystate;
 pub(crate) mod pythonrun;
+#[cfg(all(Py_3_12, not(PyPy)))]
+pub(crate) mod subinterpreter;
 // skipped sysmodule.h
 pub(crate) mod floatobject;
 pub(crate) mod tupleobject;
@@ -63,6 +65,8 @@ pub use self::pylifecycle::*;
 pub use self::pymem::*;
 pub use self::pystate::*;
 pub use self::pythonrun::*;
+#[cfg(all(Py_3_12, not(PyPy)))]
+pub use self::subinterpreter::*;
 pub use self::tupleobject::*;
 pub use self::unicodeobject::*;
 pub use self::weakrefobject::*;
